@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <queue>
 #include <vector>
 using namespace std;
@@ -9,7 +9,7 @@ struct Node
 {
 	int data;
 	bool color;
-	Node* left, * right, * parent;
+	Node* left, *right, *parent;
 
 	Node(int data)
 	{
@@ -25,7 +25,7 @@ struct Node
 class RBTree
 {
 
-	
+
 protected:
 	void rotateLeft(Node*&, Node*&);
 	void rotateRight(Node*&, Node*&);
@@ -71,7 +71,7 @@ Node* BSTInsert(Node* root, Node* pt)
 
 
 void print_(Node* t, int u) {
-	if (t == nullptr)
+	if (t == NULL)
 		return;
 	else {
 		print_(t->left, ++u);
@@ -211,7 +211,7 @@ void RBTree::fixViolation(Node*& root, Node*& pt)
 	root->color = BLACK;
 }
 
-void RBTree::remove(vector<int>& a, int data) 
+void RBTree::remove(vector<int>& a, int data)
 {
 	for (int i = 0; i < a.size(); i++)
 	{
@@ -221,11 +221,12 @@ void RBTree::remove(vector<int>& a, int data)
 	}
 	RBTree tree;
 	tree.insert(a);
-	cout << "Inoder Traversal of Created Tree\n";
-	tree.inorder();
 
-	cout << "\n\nLevel Order Traversal of Created Tree\n";
+	tree.inorder();
+	cout << endl;
+
 	tree.levelOrder();
+	cout << endl;
 }
 
 void RBTree::insert(vector<int> data)
@@ -238,7 +239,7 @@ void RBTree::insert(vector<int> data)
 
 		fixViolation(root, pt);
 	}
-	
+
 }
 
 void RBTree::inorder() { inorderHelper(root); }
@@ -250,26 +251,26 @@ int main()
 	RBTree tree;
 
 	vector<int> a;
-	a.push_back(0);
-	a.push_back(5);
-	a.push_back(8);
-	a.push_back(2);
-	a.push_back(1);
-	a.push_back(9);
-	a.push_back(10);
-	a.push_back(33);
-	a.push_back(69);
-	a.push_back(420);
+	int vvod;
+	cin >> vvod;
 
-	tree.insert(a);	
+	while (vvod != 0)
+	{
+		a.push_back(vvod);
+		cin >> vvod;
+	}
 
-	cout << "Inoder Traversal of Created Tree\n";
+	tree.insert(a);
+
+
 	tree.inorder();
+	cout << endl;
 
-	cout << "\n\nLevel Order Traversal of Created Tree\n";
+
 	tree.levelOrder();
+	cout << endl;
 
-	tree.remove(a, 9);
+	//tree.remove(a, 9);
 
 	return 0;
 }
